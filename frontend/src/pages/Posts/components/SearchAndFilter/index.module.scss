@@ -1,0 +1,23 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  
+  select {
+    height: min-content;
+    margin: auto auto 0 auto;
+  }
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    
+    label {
+      margin: 0;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
+  }
+}
