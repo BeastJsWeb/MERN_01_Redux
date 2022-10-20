@@ -1,19 +1,22 @@
-#component {
+.navbar {
+  *{
+    font-size: calc((1vw + 1vh) / 1.2);
+  }
   background-color: #282c34;
   padding: 1% 2vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(1vh + 1vw);
   font-weight: 300;
   border-bottom: 2px solid black;
 
-  >div:nth-child(1) {
+
+  >div {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1vw;
-
+    
     a {
       text-decoration: none;
     }

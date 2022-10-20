@@ -7,8 +7,7 @@ export const auth = createAsyncThunk(
   async (_, {rejectWithValue}) => {
     try {
       const logged = await authService.auth()
-      console.log(logged)
-      return logged.token
+      return logged
     } catch (e) {
       console.log(e)
       return rejectWithValue(e.response.data)
@@ -36,7 +35,7 @@ export const login = createAsyncThunk(
     try {
       const logged = await authService.login(form)
       dispatch(createdUser())
-      return logged.token
+      return logged
     } catch (e) {
       console.log(e)
       return rejectWithValue(e.response.data)
@@ -52,7 +51,8 @@ const setLoading = (state) => {
 const resolved = (state, action) => {
   state.status = 'resolved'
   state.loggedIn = true
-  localStorage.setItem('token', action.payload)
+  state.username = action.payload.username
+  localStorage.setItem('token', action.payload.token)
 }
 
 const setError = (state, action) => {
@@ -65,6 +65,7 @@ const setError = (state, action) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
+    username: null,
     created: '',
     loggedIn: false,
     status: null,

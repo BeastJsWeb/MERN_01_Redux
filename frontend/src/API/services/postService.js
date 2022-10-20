@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {axios} from '../../assets/lib/index'
 import { API_URL } from '../../utils'
 
 export default class postService {

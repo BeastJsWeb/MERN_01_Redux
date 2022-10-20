@@ -11,6 +11,7 @@ export const auth = (req, res, next) => {
       return res.status(401).json({message: 'Authorization error'})
     }
     const decoded = pkg.verify(token, secret)
+    console.log(decoded)
     req.body = decoded
     next()
   } catch (e) {

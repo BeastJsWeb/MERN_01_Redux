@@ -1,12 +1,16 @@
 import React from 'react'
-import styles from './index.module.scss'
+
+import cl from './index.module.scss'
+import { DebounceInput } from '../../../assets/lib'
 
 const Textarea = ({placeholder,...props}) => {
   return (
-    <div className={styles.component}>
-      <textarea 
+    <div className={cl.component}>
+      <DebounceInput element="textarea" 
         {...props} 
         id={placeholder}  
+        minLength={2}
+        debounceTimeout={500}
       />
       <label htmlFor={placeholder} >
         {placeholder}

@@ -1,0 +1,26 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+
+  .content {
+    *{
+      font-size: calc((1vw + 1vh) / 1.8);
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    gap: 1vw;
+    padding: calc(3vh + 3vw);
+    height: 100vh;
+  }
+}

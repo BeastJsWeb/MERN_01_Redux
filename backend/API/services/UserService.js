@@ -10,9 +10,9 @@ class UserService {
     return {user, message: 'User created successfully'}
   }
 
-  async login(user) {
-    const token = jwtService.generateAccessToken(user._id)
-    return {token}
+  async login({_id, username}) {
+    const token = jwtService.generateAccessToken(_id)
+    return {token, username}
   }
 
   async getUsers() {
@@ -20,10 +20,11 @@ class UserService {
     return users
   }
 
-  async getUser(id) {
-    const user = await User.findOne(id)
-    const token = jwtService.generateAccessToken(user._id)
-    return {token}
+  async getUser({id}) {
+    const user = await User.findById(id)
+    const {username, _id} = user
+    const token = jwtService.generateAccessToken(_id)
+    return {token, username}
   }
 }
 

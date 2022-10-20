@@ -8,17 +8,15 @@ import { changed } from '../../../../store/features/postsReducer/formSlice'
 const CreatePost = () => {
   const {status, error} = useSelector(state => state.posts.posts)
   const {form} = useSelector(state => state.posts.form)
+  const {username} = useSelector(state => state.user.auth)
   const dispatch = useDispatch()
 
   const handleChange = e => dispatch(changed(e.target))
 
   if (status.create === 'loading') return <Loader />
 
-  const onSubmit = e => {
-    e.preventDefault()
-    dispatch(create(form))
-  }
-
+  const onSubmit = () => dispatch(create({...form, author: username}))
+  
   return (
     <Form onSubmit={onSubmit} >
       <Input 
@@ -27,14 +25,6 @@ const CreatePost = () => {
         value={form.title}  
         maxLength={100} 
         placeholder='Title'
-        onChange={handleChange}
-      />
-      <Input 
-        required
-        type='text'
-        value={form.author}   
-        maxLength={50} 
-        placeholder="Author"
         onChange={handleChange}
       />
       <Textarea 

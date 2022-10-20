@@ -1,0 +1,9 @@
+.menu {
+  position: relative;
+  color: white;
+
+  &:hover {
+    color: gainsboro;
+    cursor: pointer;
+  }
+}

@@ -1,44 +1,12 @@
 .component {
-  $color: #dddddd;
-  $bg: #6B6B6B;
-  align-items: center;
-  background-color: $bg;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: .25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: $color;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1.25;
-  margin: 0;
-  min-height: 2.5rem;
-  padding: calc(.675rem - 1px) calc(1.5rem - 1px);
-  position: relative;
-  text-decoration: none;
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
-}
+  padding: 0.7em;
+  box-shadow: 0px 0px 15px 1px rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  color: inherit;
+  width: 100%;
+  transition: .3s;
 
-.component:hover,
-.component:focus {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.component:active {
-  background-color: #F0F0F1;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
+  &:hover {
+    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.4);
+  }
 }

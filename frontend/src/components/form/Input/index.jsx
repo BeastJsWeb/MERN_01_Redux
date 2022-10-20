@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react'
+
+import { DebounceInput } from '../../../assets/lib'
 import cl from './index.module.scss'
 
 const Input = ({placeholder, loaded,...props}) => {
@@ -14,11 +16,12 @@ const Input = ({placeholder, loaded,...props}) => {
   
   return (
     <div className={cl.component}>
-      <input 
+      <DebounceInput 
         {...props}  
         className={file}
         id={placeholder} 
         autoComplete="off"
+        debounceTimeout={500}
       />
       <label 
         className={[file, fileLoaded].join(' ')}

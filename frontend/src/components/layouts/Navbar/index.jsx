@@ -1,18 +1,14 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import { useDispatch } from "react-redux"
 
 import cl from './index.module.scss'
-import { Logo, SubmitButton } from "../../index"
-import { logout } from "../../../store/features/userReducer/authSlice"
+import { Logo } from "../../index"
+import { Options } from "./Options"
 
 const Navbar = () => {
-  const dispatch = useDispatch()
-
-  const handleLogout = () => dispatch(logout())
 
   return (
-    <header id={cl.component} >
+    <header className={cl.navbar} >
       <div>
         <NavLink to='/' >
           <Logo />
@@ -21,9 +17,7 @@ const Navbar = () => {
           Posts
         </NavLink>
       </div>
-      <SubmitButton onClick={handleLogout} >
-        Logout
-      </SubmitButton>
+      <Options />
     </header>
   )
 }

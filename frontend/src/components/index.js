@@ -14,6 +14,7 @@ import { Logo } from "./UI/logo";
 import { Pagination } from "./UI/Pagination";
 import { Success } from "./UI/alerts/Success";
 import { Button } from "./UI/Button";
+import { Modal } from "./UI/modal/modal";
 
 export { 
   Form, 
@@ -31,5 +32,6 @@ export {
   Logo,
   Pagination,
   Success,
-  Button
+  Button,
+  Modal
 }

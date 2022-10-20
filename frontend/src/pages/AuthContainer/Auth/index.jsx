@@ -12,8 +12,7 @@ const Auth = () => {
 
   if (status === 'loading') return <Loader />
 
-  const handleFetchUser = e => {
-    e.preventDefault()
+  const handleFetchUser = () => {
     toogled
     ? dispatch(registration(form))
     : dispatch(login(form))

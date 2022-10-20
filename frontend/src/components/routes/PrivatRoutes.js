@@ -7,6 +7,7 @@ import { Posts } from "../../pages/Posts"
 import { CreatePost } from "../../pages/Posts/pages/CreatePost"
 import { Post } from "../../pages/Posts/pages/Post"
 import { NotFoundPage } from "../../pages/NotFound"
+import { Profile } from "../../pages/Profile"
 
 export const PrivatRoutes = () => {
 
@@ -19,6 +20,7 @@ export const PrivatRoutes = () => {
           <Route path='form' element={<CreatePost />} />
           <Route path='post/:id' element={<Post />} />
         </Route>
+        <Route path="profile" element={<Profile />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>
     </Routes>
