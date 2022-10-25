@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import postService from '../../../API/services/postService'
-import { nullPost } from './postSlice'
-import { createdPost } from './formSlice'
+import { postActions } from './postSlice'
+import { postsformActions } from './formSlice'
 
 export const fetch = createAsyncThunk(
   'posts/fetch',
@@ -21,7 +21,7 @@ export const remove = createAsyncThunk(
   async (id, {rejectWithValue, dispatch}) => {
     try {
       await postService.delete(id)
-      dispatch(nullPost())
+      dispatch(postActions.nullPost())
       return id
     } catch (e) {
       console.log(e)
@@ -40,7 +40,7 @@ export const create = createAsyncThunk(
         _id: created._id,
         picture: created.picture
       }
-      dispatch(createdPost())
+      dispatch(postsformActions.createdPost())
       return newPost
     } catch (e) {
       console.log(e)

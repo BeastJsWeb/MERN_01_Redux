@@ -1,17 +1,17 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import filterSlice from "./filterSlice";
-import formSlice from "./formSlice";
-import pageSlice from "./pageSlice";
-import postSlice from "./postSlice";
+import {filterReducer} from "./filterSlice";
+import {formReducer} from "./formSlice";
+import {pageReducer} from "./pageSlice";
+import {postReducer} from "./postSlice";
 import postsSlice from "./postsSlice";
 
 const postsReducer = combineReducers ({
   posts: postsSlice,
-  post: postSlice,
-  page: pageSlice,
-  filter: filterSlice,
-  form: formSlice
+  post: postReducer,
+  page: pageReducer,
+  filter: filterReducer,
+  form: formReducer
 })
 
 export default postsReducer

@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react"
 import { useDispatch } from "react-redux"
 
 import { getCurrentPage, getPageCount } from "../pages/pages"
-import { nullPage, setPagination } from "../../store/features/postsReducer/pageSlice"
+import { pageActions } from "../../store/features/postsReducer/pageSlice"
 
 export const usePage = (posts, page) => {
   const dispatch = useDispatch()
@@ -13,7 +13,7 @@ export const usePage = (posts, page) => {
 
   useEffect(() => {
     if (!currentPage.length && posts.length) {
-      dispatch(nullPage())
+      dispatch(pageActions.nullPage())
     }
   }, [dispatch, currentPage.length, posts.length])
 
@@ -22,7 +22,7 @@ export const usePage = (posts, page) => {
   }, [posts, page.limit])
 
   useEffect(() => {
-    dispatch(setPagination(pageCount))
+    dispatch(pageActions.setPagination(pageCount))
   }, [dispatch, pageCount])
 
   return [currentPage]

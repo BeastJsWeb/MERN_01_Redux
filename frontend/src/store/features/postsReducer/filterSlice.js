@@ -10,7 +10,7 @@ const filterSlice = createSlice({
     }
   },
   reducers: {
-    changed(state, action) {
+    filterChanged(state, action) {
       switch (action.payload.name) {
         case 'sort':
           state.filter.sort = action.payload.value
@@ -27,6 +27,6 @@ const filterSlice = createSlice({
   }
 })
 
-export const {changed} = filterSlice.actions
+export const filterActions = filterSlice.actions
 
-export default filterSlice.reducer
+export const filterReducer = filterSlice.reducer

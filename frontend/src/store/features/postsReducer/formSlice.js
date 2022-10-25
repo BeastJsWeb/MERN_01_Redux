@@ -15,7 +15,7 @@ const formSlice = createSlice({
       state.form.content = ''
       state.form.picture = ''
     },
-    changed (state, action) {
+    postsFormChanged (state, action) {
       switch (action.payload.id) {
         case 'Title':
           state.form.title = action.payload.value
@@ -32,6 +32,6 @@ const formSlice = createSlice({
   }
 })
 
-export const {createdPost, changed} = formSlice.actions
+export const postsformActions = formSlice.actions
 
-export default formSlice.reducer
+export const formReducer = formSlice.reducer

@@ -5,12 +5,14 @@ import cl from './style.module.scss'
 import { Logo, Loader, Button } from "../../components/index"
 import { Auth } from "./Auth"
 import { auth } from "../../store/features/userReducer/authSlice"
-import { toogleForm } from "../../store/features/userReducer/formSlice"
+import { useActions } from "../../utils/hooks/useActions"
 
 const AuthContainer = () => {
   const {status} = useSelector(state => state.user.auth)
   const {toogled} = useSelector(state => state.user.form)
   const dispatch = useDispatch()
+
+  const {toogleForm} = useActions()
 
   useEffect(() => {
     dispatch(auth())
@@ -18,7 +20,7 @@ const AuthContainer = () => {
 
   if (status === 'loading') return <Loader />
 
-  const handleToogleForm = () => dispatch(toogleForm())
+  const handleToogleForm = () => toogleForm()
   
   return (
     <div id={cl.component} >

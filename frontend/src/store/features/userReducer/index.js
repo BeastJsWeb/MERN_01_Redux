@@ -1,12 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import authSlice from "./authSlice";
-import formSlice from "./formSlice";
+import {authReducer} from "./authSlice";
+import {formReducer} from "./formSlice";
 import profileSlice from "./profileSlice";
 
 const userReducer = combineReducers ({
-  auth: authSlice,
-  form: formSlice,
+  auth: authReducer,
+  form: formReducer,
   profile: profileSlice
 })
 

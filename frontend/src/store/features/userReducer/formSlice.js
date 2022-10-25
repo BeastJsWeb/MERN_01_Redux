@@ -26,8 +26,6 @@ const formSlice = createSlice({
   }
 })
 
-export const {
-  createdUser, setUsername, setPassword, toogleForm
-} = formSlice.actions
+export const authFormActions = formSlice.actions
 
-export default formSlice.reducer
+export const formReducer = formSlice.reducer

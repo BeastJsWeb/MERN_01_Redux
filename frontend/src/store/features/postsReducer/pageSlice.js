@@ -27,6 +27,6 @@ const pageSlice = createSlice({
   }
 })
 
-export const {changePage, nullPage, sortPage, setPagination} = pageSlice.actions
+export const pageActions = pageSlice.actions
 
-export default pageSlice.reducer
+export const pageReducer = pageSlice.reducer

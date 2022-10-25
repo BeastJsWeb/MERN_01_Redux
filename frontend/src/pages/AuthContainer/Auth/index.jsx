@@ -2,13 +2,15 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { Form, Input, SubmitButton, Error, Success, Loader } from "../../../components/index"
-import { setUsername, setPassword } from "../../../store/features/userReducer/formSlice"
 import { registration, login } from "../../../store/features/userReducer/authSlice"
+import { useActions } from "../../../utils/hooks/useActions"
 
 const Auth = () => {
   const {status, error, created} = useSelector(state => state.user.auth)
   const {form, toogled} = useSelector(state => state.user.form)
   const dispatch = useDispatch()
+
+  const {setUsername, setPassword} = useActions()
 
   if (status === 'loading') return <Loader />
 
@@ -18,8 +20,8 @@ const Auth = () => {
     : dispatch(login(form))
   }
 
-  const setName = e => dispatch(setUsername(e.target.value))
-  const setPass = e => dispatch(setPassword(e.target.value))
+  const setName = e => setUsername(e.target.value)
+  const setPass = e => setPassword(e.target.value)
 
   return (
     <Form onSubmit={handleFetchUser} >

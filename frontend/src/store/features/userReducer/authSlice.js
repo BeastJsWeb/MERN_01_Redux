@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "../../../API/services/authService";
-import { createdUser } from "./formSlice";
+import { authFormActions } from "./formSlice";
 
 export const auth = createAsyncThunk(
   'auth/auth',
@@ -20,7 +20,7 @@ export const registration = createAsyncThunk(
   async (form, {rejectWithValue, dispatch}) => {
     try {
       const created = await authService.registration(form)
-      dispatch(createdUser())
+      dispatch(authFormActions.createdUser())
       return created.message
     } catch (e) {
       console.log(e)
@@ -34,7 +34,7 @@ export const login = createAsyncThunk(
   async (form, {rejectWithValue, dispatch}) => {
     try {
       const logged = await authService.login(form)
-      dispatch(createdUser())
+      dispatch(authFormActions.createdUser())
       return logged
     } catch (e) {
       console.log(e)
@@ -98,6 +98,6 @@ const authSlice = createSlice({
   }
 })
 
-export const {logout} = authSlice.actions
+export const authActions = authSlice.actions
 
-export default authSlice.reducer
+export const authReducer = authSlice.reducer

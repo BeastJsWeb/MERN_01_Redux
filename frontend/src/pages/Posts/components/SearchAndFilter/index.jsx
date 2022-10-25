@@ -1,18 +1,18 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import cl from './index.module.scss'
 import { Input, Select } from '../../../../components/index'
-import {changed} from '../../../../store/features/postsReducer/filterSlice'
-import { sortPage } from '../../../../store/features/postsReducer/pageSlice'
+import { useActions } from '../../../../utils/hooks/useActions'
 
 const SearchAndFilter = () => {
   const {filter} = useSelector(state => state.posts.filter)
   const {page} = useSelector(state => state.posts.page)
-  const dispatch = useDispatch()
 
-  const changeFilter = e => dispatch(changed(e.target))
-  const pageLimit = e => dispatch(sortPage(e.target.value))
+  const {filterChanged, sortPage} = useActions()
+
+  const changeFilter = e => filterChanged(e.target)
+  const pageLimit = e => sortPage(e.target.value)
 
   return (
     <div className={cl.component}>

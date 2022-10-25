@@ -1,17 +1,19 @@
 import React, {useContext} from "react"
 import { NavLink } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 
 import cl from './index.module.scss'
-import { openPost } from "../../../../store/features/postsReducer/postSlice"
 import { PostsContext } from "../../../../utils"
+import { useActions } from "../../../../utils/hooks/useActions"
 
 const PostsList = () => {
   const {post} = useSelector(state => state.posts.post)
-  const dispatch = useDispatch()
+  
   const {currentPage, searchedPosts} = useContext(PostsContext)
 
-  const handleOpenPost = e => dispatch(openPost({currentPage, e}))
+  const {openPost} = useActions()
+
+  const handleOpenPost = e => openPost({currentPage, e})
 
   if (!searchedPosts) return ''
 

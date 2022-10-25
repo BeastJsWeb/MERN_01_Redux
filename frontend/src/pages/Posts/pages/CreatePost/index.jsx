@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Form, Error, Textarea, SubmitButton, Input, Loader } from '../../../../components/index'
 import { create } from '../../../../store/features/postsReducer/postsSlice'
-import { changed } from '../../../../store/features/postsReducer/formSlice'
+import { useActions } from '../../../../utils/hooks/useActions'
 
 const CreatePost = () => {
   const {status, error} = useSelector(state => state.posts.posts)
@@ -11,7 +11,9 @@ const CreatePost = () => {
   const {username} = useSelector(state => state.user.auth)
   const dispatch = useDispatch()
 
-  const handleChange = e => dispatch(changed(e.target))
+  const {postsFormChanged} = useActions()
+
+  const handleChange = e => postsFormChanged(e.target)
 
   if (status.create === 'loading') return <Loader />
 

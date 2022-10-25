@@ -5,5 +5,8 @@ export const getPageCount = (totalCount, limit) => {
 
 export const getCurrentPage = (posts, page) => {
   const {number, limit} = page
+  if (limit < 1) {
+    return posts
+  }
   return posts.slice(number * limit - limit, number * limit)
 }

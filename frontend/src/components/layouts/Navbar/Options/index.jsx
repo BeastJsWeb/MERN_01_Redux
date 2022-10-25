@@ -1,17 +1,17 @@
 import React from "react"
 import { NavLink, Link } from "react-router-dom"
-import { useDispatch } from "react-redux"
 
 import cl from './style.module.scss'
-import { logout } from "../../../../store/features/userReducer/authSlice"
 import { Modal } from "../../../index"
 import { useToogle } from "../../../../utils/hooks/useToogle"
+import { useActions } from "../../../../utils/hooks/useActions"
 
 export const Options = () => {
   const [isActive, handleUseModal] = useToogle()
-  const dispatch = useDispatch()
 
-  const handleLogout = () => dispatch(logout())
+  const {logout} = useActions()
+
+  const handleLogout = () => logout()
 
   return (
     <div 
